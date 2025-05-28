@@ -24,6 +24,19 @@ st.title("Excel File Uploader")
 
 uploaded_file = st.file_uploader("Upload your Excel file", type=["xlsx", "xls"])
 
+if uploaded_file is not None:
+    # Read the Excel file
+    df = pd.read_excel(uploaded_file)
+
+    # Display the data
+    st.write("Preview of the uploaded Excel file:")
+    st.dataframe(df)
+else:
+    st.warning("Please upload an Excel file to proceed.")
+
+
+
+
 ##################
 
 
